@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset=UTF-8">
+        <meta charset='<?php echo APP_CHARSET ?>' />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title><?php echo Config::get('config.application.name') ?></title>
+        <?php
+        //Bootstrap
+        Tag::css('vendors/bootstrap.min');
+        // Font Awesome
+        Tag::css('vendors/font-awesome/css/font-awesome.min');
+        // NProgress
+        Tag::css('vendors/nprogress');
+        // Animate
+        Tag::css('build/animate.min');
+        // Custom Theme Style
+        Tag::css('build/custom');
+
+        echo Html::includeCss();
+        ?>
+        <!-- <link href="../css/build/custom.css" rel="stylesheet"> -->
+    </head>
+    <body class="login">
+        <div>
+            <a class="hiddenanchor" id="signup"></a>
+            <a class="hiddenanchor" id="signin"></a>
+            <a class="hiddenanchor" id="restore"></a>
+
+            <div class="login_wrapper"> 
+                
+               <div class="animate form login_form">
+                    <section class="login_content">
+                        <?php View::content() ?>
+                        <?php echo Form::open(NULL, 'post') ?>
+                        <h1>Ingreso al Sistema</h1>
+                        <div>
+                            <?php echo Form::text('login', 'class="form-control" placeholder="Usuario" required autofocus') ?>
+                        </div>
+                        <div>
+                            <?php echo Form::pass('clave', 'class="form-control" placeholder="Contraseña" required') ?>
+                        </div>
+
+                        </br>
+                        <div>
+                            <?php echo Form::submit('Ingresar', 'class="btn btn-default submit"') ?>
+                        </div>
+
+                        <?php if (Config::get('config.application.recordar_sesion')): ?>
+                            <div class="checkbox">
+                                <label>
+                                    <?php echo Form::check('recordar', 1, NULL, MyAuth::cookiesActivas()) ?> No cerrar Sesión
+                                </label>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <!--
+                            <p class="change_link">
+                                <a href="#restore" class="to_register"> Recuperar contraseña </a>
+                            </p>                             
+                            <p class="change_link">Eres nuevo ?
+                                <a href="#signup" class="to_register"> Crear Cuenta </a>
+                            </p>
+                            -->
+                            <div class="clearfix"></div>
+                            <br />
+
+                            <div>
+                                <h1><i class="fa fa-paw"></i> iT gApps!</h1>
+                                <p>Developed By: <a href="http://www.itgapps.com" target="_blank">iT gApps</a></p>
+                                <p>© 2007- <?php echo date('Y'); ?>  - Todos los derechos reservados. </p>
+                            </div>
+                        </div>
+                        <?php echo Form::close() ?>
+                    </section>
+                </div>
+                
+                <!--
+                <div id="register" class="animate form registration_form">
+                    <section class="login_content">
+                        <form>
+                            <h1>Crear Cuenta</h1>
+                            <div>
+                                <input type="text" class="form-control" placeholder="Nombre" required="" />
+                            </div>
+                            <div>
+                                <input type="email" class="form-control" placeholder="Email" required="" />
+                            </div>
+                            <div>
+                                <input type="password" class="form-control" placeholder="Password" required="" />
+                            </div>
+                            <div>
+                                <a class="btn btn-default submit" href="index.html">Submit</a>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="separator">
+                                <p class="change_link">Eres usuario ?
+                                    <a href="#signin" class="to_register"> Ingresa </a>
+                                </p>
+
+                                <div class="clearfix"></div>
+                                <br />
+
+                                <div>
+                                    <h1><i class="fa fa-paw"></i> DashBoards</h1>
+                                    <p>Powered By: <a href="http://www.gmasweb.com.ar" target="_blank">G+</a> Design By: <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+                                    <p>© 2010 - <?php echo date('Y'); ?>  - Todos los derechos reservados. </p>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                -->
+                
+                <!--
+                <div id="recover" class="animate form restore_form">
+                    <section class="login_content">
+                        <form>
+                            <h1>Recuperar Contraseña</h1>
+                            <div>
+                                <input type="email" class="form-control" placeholder="Email" required="" />
+                            </div>
+                            <div>
+                                <a class="btn btn-default submit" href="index.html">Ok</a>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="separator">
+                                <p class="change_link">Eres usuario ?
+                                    <a href="#signin" class="to_register"> Ingresa </a>
+                                </p>
+
+                                <div class="clearfix"></div>
+                                <br />
+
+                                <div>
+                                    <h1><i class="fa fa-paw"></i> Delta Graf</h1>
+                                    <p>Powered By: <a href="http://www.gmasweb.com.ar" target="_blank">G+</a> Design By: <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+                                    <p>© 2010 - <?php echo date('Y'); ?>  - Todos los derechos reservados. </p>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                -->
+                
+            </div>
+        </div>
+
+
+    </body>
+
+</html>

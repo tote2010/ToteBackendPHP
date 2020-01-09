@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><?php eh($titulo) ?></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div id="res-form-ajax"><?php View::content() ?></div>
+
+<?php echo Form::open(NULL, 'post', 'class="form-horizontal" role="form"') ?>
+
+    <?php echo Form::hidden('menu.id') ?>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Menu Padre :</label>
+      <div class="col-sm-4">          
+        <?php echo Form::dbSelect('menu.menus_id', 'nombre', array('menus', 'find', 'activo = 1'), 'Ninguno', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Recurso al que Accede :</label>
+      <div class="col-sm-4">          
+        <?php echo Form::dbSelect('menu.recursos_id', 'recurso', NULL, 'Seleccione', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Texto a Mostrar :</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('menu.nombre', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Url del Menu :</label>
+      <div class="col-sm-4">          
+        <?php echo Form::text('menu.url', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Posicion en el Menu :</label>
+      <div class="col-sm-2">          
+        <?php echo Form::text('menu.posicion', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Clases del Menu :</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('menu.clases', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Icono (Font Awesome) :</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('menu.icon_fa', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-3" for="">Visible En : </label>
+        <div class="radio">
+            <label>
+                <?php echo Form::radio('menu.visible_en', '1') ?>
+                Solo en La Aplicación, fuera del Backend
+            </label>
+        </div>
+        <label class="control-label col-sm-3" for="">&nbsp;</label>
+        <div class="radio">
+            <label>
+                <?php echo Form::radio('menu.visible_en', '2') ?>
+                Solo en El Backend
+            </label>
+        </div>
+        <label class="control-label col-sm-3" for="">&nbsp;</label>
+        <div class="radio">
+            <label>
+                <?php echo Form::radio('menu.visible_en', '3') ?>
+                En cualquier parte del sistema
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Activo (Visible) :</label>
+      <div class="col-sm-4">          
+        <?php echo Form::select('menu.activo', array('1' => 'Si', '0' => 'No'), 'class="form-control"') ?>
+      </div>
+    </div>
+
+    </BR>
+    <div class="form-group">        
+      <div class="col-sm-offset-3 col-sm-10">
+         <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+        <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-default"') ?>
+      </div>
+    </div> 
+
+<?php echo Form::close() ?>
+
+<script type="text/javascript" >
+    $(function(){
+        $("#menu_recursos_id").change(function(){
+            var recurso = $('option:selected',this).text();
+            $("#menu_url").val(recurso.replace('/*',''));
+        });
+    });
+</script>

@@ -1,0 +1,177 @@
+<style>
+    img {
+      max-width: 100%;
+    }
+
+    .cropper-view-box,
+    .cropper-face {
+      border-radius: 50%;
+    }
+  </style>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <h1 class="page-header">Configuraci&oacute;n del Perfil</small></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div id="res-form-ajax"><?php View::content() ?></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <!-- /.panel-heading -->
+        <div class="x_panel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs bar_tabs">
+                <li class="active"><a href="#datos-personales" role="tab" data-toggle="tab">Datos Personales</a></li>
+                <li><a href="#clave" role="tab" data-toggle="tab">Contrase&ntilde;a</a></li>
+                <li><a href="#foto" role="tab" data-toggle="tab">Foto de Perfil</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div role="tabpanel" class="tab-content">
+                
+                <!--TAB DATOS PERSONALES -->
+                <div class="tab-pane fade in active " id="datos-personales">
+                    </br>
+                    <?php echo Form::open(NULL, 'post', 'class="form-horizontal" role="form" required="required"') ?>
+                    <?php echo Form::hidden('usuario1.id') ?>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Login *:</label>
+                        <div class="col-sm-4">          
+                            <?php echo Form::text('usuario1.login', 'class="form-control" READONLY') ?>
+                        </div>
+                    </div>                      
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Nombres *:</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::text('usuario1.nombres', 'class="form-control" required="required"') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Apellido *:</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::text('usuario1.apellido', 'class="form-control" required="required"') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Teléfono :</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::text('usuario1.telefono', 'class="form-control"') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Celular :</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::text('usuario1.celular', 'class="form-control"') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Email *:</label>
+                        <div class="col-sm-4">          
+                            <?php echo Form::text('usuario1.email', 'class="form-control" required="required"') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Domicilio :</label>
+                        <div class="col-sm-6">          
+                            <?php echo Form::text('usuario1.domicilio', 'class="form-control"') ?>
+                        </div>
+                    </div>
+
+                    </BR>
+
+                    <div class="form-group">        
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+                            <?php echo Html::link('', 'Cancelar', 'class="btn btn-default"') ?>
+                        </div>
+                    </div> 
+
+                    <?php echo Form::close() ?>
+
+                </div>
+              
+                <!--TAB CONTRASEÑA -->
+                <div class="tab-pane fade" id="clave">
+                    </br>
+                    <?php echo Form::open(NULL, 'post', 'class="form-horizontal" role="form"') ?>
+                    <?php //echo Ajax::form('res-datos-personales', NULL, 'form-horizontal', '', ' role="form"') //Form::open() ?>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Contrase&ntilde;a* :</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::pass('usuario2.nueva_clave', 'class="form-control" required="required"') ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Reintroducir Contrase&ntilde;a* :</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::pass('usuario2.nueva_clave2', 'class="form-control" required="required"') ?>
+                        </div>
+                    </div>
+
+                    </BR>                   
+
+                    <div class="form-group">        
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+                            <?php echo Html::link('', 'Cancelar', 'class="btn btn-default"') ?>
+                        </div>
+                    </div> 
+
+                    <?php echo Form::close() ?>
+                </div>    
+                
+                
+                <!--TAB FOTO PERFIL -->
+                <div class="tab-pane fade" id="foto">
+                    </br>
+                    
+                    <?php echo Form::openMultipart(NULL, 'class="form-horizontal" role="form"') ?>
+                    <?php echo Form::hidden('usuario3.id', null, $usuario1->id) ?>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Foto :</label>
+                        <div class="col-sm-3">  
+                            <?php if($usuario1->img){
+                                echo Html::img('upload/usuarios/' . $usuario1->img, '', 'class="img-responsive avatar-view"');
+                            } else { 
+                                echo Html::img('user.png', '', 'class="img-responsive avatar-view"');
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="">Archivo :</label>
+                        <div class="col-sm-3">          
+                            <?php echo Form::file('img', 'class="form-control"') ?>
+                        </div>
+                    </div>
+                    </BR>                   
+
+                    <div class="form-group">        
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+                            <?php echo Html::link('', 'Cancelar', 'class="btn btn-default"') ?>
+                        </div>
+                    </div> 
+
+                    <?php echo Form::close() ?>
+                </div>    
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.xpanel -->
+    </div>
+    <!--col-md-12 col-sm-12 col-xs-12 -->
+</div>
+<!-- /.row -->
+

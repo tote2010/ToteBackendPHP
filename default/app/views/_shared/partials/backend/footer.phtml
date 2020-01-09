@@ -1,0 +1,12 @@
+<!-- footer content -->
+<footer>
+    <div class="pull-right">
+        Back End - Developed by <a href="https://colorlib.com"><b>iT gApps</b></a>
+        &nbsp;|&nbsp;
+        <?php echo 'Tiempo de Carga: ' . round((microtime(1) - START_TIME), 4) . ' seg.';
+        echo ', Memoria Usada: ' . number_format(memory_get_usage() / 1048576, 2) . ' MB';
+        ?>
+    </div>
+    <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->

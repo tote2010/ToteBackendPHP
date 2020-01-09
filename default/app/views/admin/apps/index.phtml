@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">APPs <small>Listing</small></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div id="res-form-ajax"><?php View::content() ?></div>
+
+
+<!-- page content -->
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Projects</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li class="dropdown">
+                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-plus-square"></i></a> -->
+                        <?php echo Html::linkAction('add', '<i class="fa fa-plus-square"></i>', 'role="button" aria-expanded="false"'); ?>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <!-- start project list -->
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%"> </th>
+                            <th style="width: 45%">App Name</th>
+                            <th style="width: 10%">Folder</th>
+                            <th style="width: 10%">Version</th>
+                            <th style="width: 10%">Status</th>
+                            <th style="width: 10%">Options</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach ($apps as $app) { ?>
+                            <tr>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <?php echo Html::link($app->folder, Html::img('upload/apps/' . $app->logo, null, 'class="img-responsive" alt=""')) ?>
+                                            
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <?php echo Html::link($app->folder, $app->name); ?>
+                                    <br />
+                                    <small>Created <?php echo $app->created_at ?></small>
+                                    <br />
+                                    <small>Google Play:  <a href="<?php echo $app->googleplay_link ?>" target="_blank"><?php echo $app->googleplay_link ?></a></small>
+                                </td>
+                                <td>
+                                    <?php echo $app->folder?>
+                                </td>                                
+                                <td>
+                                    <?php echo $app->version . " - " . $app->version_name?>
+                                </td>                                
+                                <td>
+                                    <?php if($app->status == 'In Progress') { ?>
+                                        <button type="button" class="btn btn-info btn-xs"><?php echo $app->status ?></button>
+                                    <?php } elseif ($app->status == 'Published') { ?>
+                                        <button type="button" class="btn btn-success btn-xs"><?php echo $app->status ?></button>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <?php echo Html::linkAction('view/' . $app->id, '<i class="fa fa-folder"></i> View ', 'class="btn btn-primary btn-xs"') ?>
+                                    <?php echo Html::linkAction('edit/' . $app->id, '<i class="fa fa-pencil"></i> Edit ', 'class="btn btn-info btn-xs"') ?>
+                                    <?php echo Html::linkAction('delete/' . $app->id, '<i class="fa fa-trash-o"></i> Delete ', 'class="btn btn-danger btn-xs"') ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+
+                    </tbody>
+                </table>
+                <!-- end project list --> 
+            </div>
+        </div>
+    </div>
+</div>

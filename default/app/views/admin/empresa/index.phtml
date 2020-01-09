@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Datos de la Empresa</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div id="res-form-ajax"><?php View::content() ?></div>
+
+<?php echo Form::open(NULL, 'post', 'class="form-horizontal" role="form"') ?>
+
+    <?php echo Form::hidden('empresa.id') ?>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Nombre de la Empresa* :</label>
+      <div class="col-sm-4">          
+        <?php echo Form::text('empresa.nombre', 'class="form-control" required="required"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Domicilio* :</label>
+      <div class="col-sm-6">          
+        <?php echo Form::text('empresa.domicilio', 'class="form-control" required="required"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Teléfono 1* :</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('empresa.telefono1', 'class="form-control" required="required"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Teléfono 2:</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('empresa.telefono2', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">C.U.I.T.* :</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('empresa.cuit', 'class="form-control" required="required"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Imágen Data Fiscal:</label>
+      <div class="col-sm-4">          
+        <?php echo Form::text('empresa.img_data_fiscal', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Link Data Fiscal :</label>
+      <div class="col-sm-6">          
+        <?php echo Form::text('empresa.link_data_fiscal', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <!-- Redes Sociales (links) -->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Linkedin :</label>
+      <div class="col-sm-6">          
+        <?php echo Form::text('empresa.linkedin', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Facebook :</label>
+      <div class="col-sm-6">          
+        <?php echo Form::text('empresa.facebook', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Twitter :</label>
+      <div class="col-sm-6">          
+        <?php echo Form::text('empresa.twitter', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Instagram :</label>
+      <div class="col-sm-6">          
+        <?php echo Form::text('empresa.instagram', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    </BR>
+    <div class="form-group">        
+      <div class="col-sm-offset-3 col-sm-10">
+         <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+        <?php echo Html::linkAction('index', 'Cancelar', 'class="btn btn-default"') ?>
+      </div>
+    </div> 
+
+<?php echo Form::close() ?>
+

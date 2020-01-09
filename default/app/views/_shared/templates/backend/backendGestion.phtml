@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset='<?php echo APP_CHARSET ?>' />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <title><?php echo Config::get('config.application.name') ?></title>
+        <?php
+        //Bootstrap Core CSS
+        Tag::css('backend/bootstrap.min');        
+        // MetisMenu CSS
+        Tag::css('backend/metisMenu.min'); 
+        //Custom CSS
+        Tag::css('backend/sb-admin-2');
+        //Custom Fonts
+        Tag::css('backend/font-awesome.min');
+        echo Html::includeCss();           
+        ?>
+    </head>
+    <body>        
+        <div class="wrapper">
+            <?php View::partial('backend/cabecera_gestion') ?>
+            <!-- <div id="contenido" class="content"> -->
+                <?php View::content(); ?>
+            <!-- </div> -->
+            <?php View::partial('backend/pie') ?>
+        </div>
+        
+    <?php
+    // jQuery
+    echo Tag::js('jquery/jquery.min');
+    
+    //echo Tag::js('jquery/jquery.kumbiaphp');
+    
+    // Bootstrap Core JavaScript
+    echo Tag::js('bootstrap/bootstrap.min');
+    
+    // Metis Menu Plugin JavaScript
+    echo Tag::js('metisMenu/metisMenu.min');
+    
+    //echo Tag::js('global');
+    
+    // Custom Theme JavaScript
+    echo Tag::js('sb-admin-2');
+           
+    ?>
+        
+    </body>
+</html>

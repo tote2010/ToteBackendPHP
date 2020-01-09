@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Configuraci&oacute;n De la Aplicación</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div id="res-form-ajax"><?php View::content() ?></div>
+
+<?php echo Form::open(NULL, 'post', 'class="form-horizontal" role="form"') ?>
+
+<h3 class="page-header">General</h3>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_name">T&iacute;tulo del Proyecto : </label>
+    <div class="col-sm-4">
+        <?php echo Form::text('config.name', 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_production">Proyecto en Producci&oacute;n : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.production', array('On' => 'Si', 'Off' => 'No'), 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_dbdate">Formato de Fechas : </label>
+    <div class="col-sm-4">
+        <?php echo Form::text('config.dbdate', 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_debug">Debug : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.debug', array('On' => 'Si', 'Off' => 'No'), 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_log_exceptions">Mostrar Excepciones : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.log_exceptions', array('On' => 'Si', 'Off' => 'No'), 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_charset">Codificaci&oacute;n de Caracteres : </label>
+    <div class="col-sm-4">
+        <?php echo Form::text('config.charset', 'class="form-control"') ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_cache_driver">Driver de Cache : </label>
+    <div class="col-sm-4">
+        <?php echo Form::text('config.cache_driver', 'class="form-control"') ?>
+    </div>
+</div>
+
+<h3 class="page-header">Seguridad</h3>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_minimo_clave">Caracteres M&iacute;nimo Clave : </label>
+    <div class="col-sm-4">
+        <?php echo Form::text('config.minimo_clave', 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_guardar_auditorias">Auditorias Activa : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.guardar_auditorias', array('On' => 'Si', 'Off' => 'No'), 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_guardar_auditorias">Intentos de Acceso : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.intentos_acceso', array(1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 'class="form-control"') ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_recordar_sesion">Permitir Recordar Sesión : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.recordar_sesion', array('On' => 'Si', 'Off' => 'No'), 'class="form-control"') ?>
+    </div>
+</div>
+
+<h3 class="page-header">Otros</h3>
+<div class="form-group">
+    <label class="control-label col-sm-3" for="config_registro">M&oacute;dulo de Registro Activo : </label>
+    <div class="col-sm-4">
+        <?php echo Form::select('config.registro', array('On' => 'Si', 'Off' => 'No'), 'class="form-control"') ?>
+    </div>
+</div>
+
+</br>
+<div class="form-group">        
+    <div class="col-sm-offset-3 col-sm-8">
+        <?php echo Form::submit('Guardar Configuración', 'class="btn btn-primary"') ?>
+    </div>
+</div>
+<?php echo Form::close() ?>

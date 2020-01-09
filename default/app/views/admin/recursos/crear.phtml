@@ -1,0 +1,58 @@
+</br><div id="res-form-ajax"><?php View::content() ?></div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><?php eh($titulo) ?></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<?php echo Form::open(NULL, 'post', 'class="form-horizontal" role="form"') ?>
+
+    <?php echo Form::hidden('recurso.id') ?>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">M&oacute;dulo :</label>
+      <div class="col-sm-3">          
+        <?php echo Form::text('recurso.modulo', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Controldor * :</label>
+      <div class="col-sm-3">          
+         <?php echo Form::text('recurso.controlador', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Acci&oacute;n :</label>
+      <div class="col-sm-3">          
+         <?php echo Form::text('recurso.accion', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Descripci&oacute;n :</label>
+      <div class="col-sm-5">          
+         <?php echo Form::textarea('recurso.descripcion', 'class="form-control"') ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="">Activo (Visible) :</label>
+      <div class="col-sm-2">          
+        <?php echo Form::select('recurso.activo', array('1' => 'Si', '0' => 'No'), 'class="form-control"') ?>
+      </div>
+    </div>
+
+    </BR>
+    <div class="form-group">        
+      <div class="col-sm-offset-3 col-sm-10">
+         <?php echo Form::submit('Guardar Datos', 'class="btn btn-primary"') ?>
+        <?php echo Html::linkAction('', 'Cancelar', 'class="btn btn-default"') ?>
+      </div>
+    </div> 
+
+<?php echo Form::close() ?>

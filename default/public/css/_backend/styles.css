@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/01/2016, 14:23:43
+    Author     : tote
+*/
+
+table.table input[type=checkbox], table.table img{
+    width: 20px;
+    position: relative;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.navbar-default {
+    background-color: #222; 
+    border-color: #222;
+}
+
+.sidebar ul li{
+    border: none;
+}
+.sidebar ul li a:active {
+    background-color: #000;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.sidebar ul li a:hover {
+   background-color: #000;
+} 
+
+.top-nav>li>a {
+    color: #999;
+}
+
+a {
+    color: #9d9d9d;
+    text-decoration: none;
+}
+
+a:active {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #fff;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #000;
+}

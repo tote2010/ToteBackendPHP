@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset='<?php echo APP_CHARSET ?>' />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title><?php echo Config::get('config.application.name') ?></title>
+              
+        <?php
+        //Bootstrap
+        Tag::css('vendors/bootstrap.min');
+        // Font Awesome
+        Tag::css('vendors/font-awesome/css/font-awesome.min');
+        // NProgress
+        Tag::css('vendors/nprogress');
+        // iCheck
+        Tag::css('vendors/iCheck/skins/flat/green');
+        // bootstrap-progressbar 
+        Tag::css('vendors/bootstrap-progressbar-3.3.4.min');
+        // JQVMap
+        Tag::css('vendors/jqvmap/jqvmap.min');
+        
+        // Cropper
+        Tag::css('vendors/cropper/cropper.min');
+        
+        // Custom Theme Style
+        Tag::css('build/custom.min');
+        
+        //Autocomplete respuesta
+        Tag::css('backend/estilos');
+              
+        //DataTables CSS
+        Tag::css('backend/data-table/dataTables.bootstrap.min');
+        Tag::css('backend/data-table/buttons.bootstrap.min');
+        Tag::css('backend/data-table/dfixedHeader.bootstrap.min');
+        Tag::css('backend/data-table/responsive.bootstrap.min');
+        Tag::css('backend/data-table/scroller.bootstrap.min');
+        
+        // Css Autocomplete
+        Tag::css('vendors/jquery-ui-1.10.3.custom.min');
+        
+        //datetimepicker
+        Tag::css('jquery.datetimepicker');
+        
+        //dropzone
+        Tag::css('vendors/dropzone/dropzone.min');
+        // Switchery
+        Tag::css('vendors/switchery/switchery.min');
+        /*
+        //DataTables CSS
+        Tag::css('backend/dataTables.bootstrap');
+        //DataTables Responsive CSS
+        Tag::css('backend/dataTables.responsive');
+        //Timeline CSS
+        Tag::css('backend/timeline');
+        //Custom CSS
+        Tag::css('backend/sb-admin-2');
+        //Morris Charts CSS
+        Tag::css('backend/morris');
+        //Custom Fonts
+        Tag::css('backend/font-awesome.min');
+
+        //Tag::css('backend/estilos'); 
+        Tag::css('backend/styles');
+        */
+        Tag::css('extras');
+        echo Html::includeCss();
+
+        // jQuery
+        echo Tag::js('vendors/jquery/jquery.min');
+        // Kumbiaphp
+        echo Tag::js('build/jquery.kumbiaphp');
+        // JQuery Autocomplete
+        echo Tag::js('vendors/jquery/jquery-ui');  
+        // Bootstrap Core JavaScript
+        echo Tag::js('vendors/bootstrap/bootstrap.min');
+        // FastClick
+        echo Tag::js('vendors/fastclick/fastclick');
+        // NProgress
+        echo Tag::js('vendors/nprogress/nprogress');
+        // Chart.js
+        echo Tag::js('vendors/Chart.js/Chart.min');
+        // gauge.js
+        echo Tag::js('vendors/gauge.js/gauge.min');
+        // Cropper
+        echo Tag::js('vendors/cropper/cropper.min');
+        // bootstrap-progressbar
+        echo Tag::js('vendors/bootstrap-progressbar/bootstrap-progressbar.min');
+        // iCheck
+        echo Tag::js('vendors/iCheck/icheck.min');
+        // Skycons
+        //echo Tag::js('vendors/skycons/skycons.min');
+        // Flot
+        //echo Tag::js('vendors/Flot/jquery.flot');
+        //echo Tag::js('vendors/Flot/jquery.flot.pie');
+        //echo Tag::js('vendors/Flot/jquery.flot.time');
+        //echo Tag::js('vendors/Flot/jquery.flot.stack');
+        //echo Tag::js('vendors/Flot/jquery.flot.resize');
+        // Flot plugins
+        //echo Tag::js('vendors/Flot/jquery.flot.orderBars');
+        //echo Tag::js('vendors/Flot/date.pie');
+        //echo Tag::js('vendors/Flot/query.flot.spline');
+        //echo Tag::js('vendors/Flot/curvedLines');
+        // Flot plugins
+        echo Tag::js('vendors/jqvmap/jquery.vmap');
+        echo Tag::js('vendors/jqvmap/maps/jquery.vmap.world');
+        //echo Tag::js('vendors/jqvmap/examples/js/jquery.vmap.sampledata');
+        // bootstrap-daterangepicker
+        echo Tag::js('moment/moment.min');
+        echo Tag::js('datepicker/daterangepicker');
+        echo Tag::js('datepicker/jquery.datetimepicker.full.min');
+        
+        //DataTables JavaScript        
+        echo Tag::js('data-table/jquery.dataTables.min');
+        echo Tag::js('data-table/dataTables.bootstrap.min');
+        echo Tag::js('data-table/dataTables.buttons.min');
+        echo Tag::js('data-table/dataTables.fixedHeader.min');
+        echo Tag::js('data-table/dataTables.keyTable.min');
+        echo Tag::js('data-table/dataTables.responsive.min');
+        echo Tag::js('data-table/dataTables.scroller.min');
+        
+        echo Tag::js('global');
+        
+        /*
+        // Metis Menu Plugin JavaScript
+        echo Tag::js('metisMenu/metisMenu.min');
+        //DataTables JavaScript
+        echo Tag::js('data-table/jquery.dataTables.min');
+        echo Tag::js('data-table/dataTables.bootstrap.min');
+        // Morris Charts JavaScript
+        echo Tag::js('morris/raphael-min');
+        echo Tag::js('morris/morris.min');  
+        // Custom Theme JavaScript
+        echo Tag::js('sb-admin-2');
+        */
+        ?>
+
+
+    </head>
+    <body class="nav-md">        
+        <div class="container body">
+            <div class="main_container">
+            <?php View::partial('backend/sidebar-menu') ?>
+            <?php View::partial('backend/top') ?>
+             <!-- page content -->
+            <div class="right_col" role="main">
+                <?php View::content(); ?>            
+            </div>
+             <!-- /page content -->
+            <?php View::partial('backend/footer')  ?>
+            </div>
+        </div> 
+        <?php 
+            // Custom Theme Scripts
+            echo Tag::js('build/custom');
+            //echo Tag::js('build/custom.min');
+        ?>
+    </body>    
+</html>
